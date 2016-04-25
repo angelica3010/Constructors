@@ -1,6 +1,6 @@
-var prompt = require('prompt');
+//var prompt = require('prompt');
 
-prompt.start();
+//prompt.start();
 
 var Student = function (name, gender, grade, gpa, detentions, sleepingInClass, catchPhrase) {
 	this.name = name;
@@ -12,27 +12,33 @@ var Student = function (name, gender, grade, gpa, detentions, sleepingInClass, c
 	this.catchPhrase =catchPhrase;
 
 	this.canStudentHaveFun = function (){
-		if ((this.detentions < 10)  && (this.GPA >= 2.0)) {
-			console.log ("You can have fun");
+		
+		if ((this.detentions < 10)  && (this.gpa >= 2.0)) {
+			//console.log ("You can have fun");
+			return true;
 		} else {
-			console.log("You cannot have fun!")
+			//console.log("You cannot have fun!")
+			return false;
+
 		}
 	}
+}
 
 
 
-prompt.get(['name', 'gender', 'grade', 'gpa', 'detentions', 'sleepingInClass', 'catchPhrase'], function (err, result) {
-	var student = new Student (result.name, result.gender, result.grade, result.gpa, result.detentions, result.sleepingInClass, result.catchPhrase);
-	student.canStudentHaveFun();
-	console.log( "**********")
-	return student;
-
-	 if (err){
-	 	console.log(err);
-	 }
-
-
-});
+//prompt.get(['name', 'gender', 'grade', 'gpa', 'detentions', 'sleepingInClass', 'catchPhrase'], function (err, result) {
+// 	var student = new Student (result.name, result.gender, result.grade, result.gpa, result.detentions, result.sleepingInClass, result.catchPhrase);
+// 	if (student.canStudentHaveFun()){
+// 			console.log ("You can have fun");
+// 	} else {
+// 			console.log("You cannot have fun!")
+// 	}
+// 	console.log( "**********")
+// 	 if (err){
+// 	 	console.log(err);
+// 	 }
+// 	// return student;
+// });
 
 module.exports = Student;
 
